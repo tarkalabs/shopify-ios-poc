@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7DB6EFD38CD5F151B30FC544 /* Pods_shopify_ios_poc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985E5191E3E6A24709491D50 /* Pods_shopify_ios_poc.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8B5953D01BDA552C007AD1BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5953CF1BDA552C007AD1BB /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8B5953D31BDA8A49007AD1BB /* shopify_api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B5953D21BDA8A49007AD1BB /* shopify_api.plist */; settings = {ASSET_TAGS = (); }; };
+		8B5953D61BDA8B7F007AD1BB /* ShopifyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5953D51BDA8B7F007AD1BB /* ShopifyApi.swift */; settings = {ASSET_TAGS = (); }; };
 		8BA187741BDA4B28009DAC37 /* RootTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA187731BDA4B28009DAC37 /* RootTabController.swift */; settings = {ASSET_TAGS = (); }; };
 		8BF0A0961BCE2B9C009D70CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0A0951BCE2B9C009D70CA /* AppDelegate.swift */; };
 		8BF0A09B1BCE2B9C009D70CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0A0991BCE2B9C009D70CA /* Main.storyboard */; };
@@ -38,8 +40,10 @@
 /* Begin PBXFileReference section */
 		0530AAB5DB00A86F4A4CA4C3 /* Pods-shopify-ios-poc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopify-ios-poc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shopify-ios-poc/Pods-shopify-ios-poc.debug.xcconfig"; sourceTree = "<group>"; };
 		68CCC46DAEBC57C80866FC0D /* Pods-shopify-ios-poc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopify-ios-poc.release.xcconfig"; path = "Pods/Target Support Files/Pods-shopify-ios-poc/Pods-shopify-ios-poc.release.xcconfig"; sourceTree = "<group>"; };
-		8B5953CE1BDA53F8007AD1BB /* bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging_header.h; sourceTree = "<group>"; };
+		8B5953CE1BDA53F8007AD1BB /* bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bridging_header.h; path = ../bridging_header.h; sourceTree = "<group>"; };
 		8B5953CF1BDA552C007AD1BB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = controllers/HomeViewController.swift; sourceTree = "<group>"; };
+		8B5953D21BDA8A49007AD1BB /* shopify_api.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = shopify_api.plist; path = ../shopify_api.plist; sourceTree = "<group>"; };
+		8B5953D51BDA8B7F007AD1BB /* ShopifyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopifyApi.swift; sourceTree = "<group>"; };
 		8BA187731BDA4B28009DAC37 /* RootTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabController.swift; sourceTree = "<group>"; };
 		8BF0A0921BCE2B9C009D70CA /* shopify-ios-poc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shopify-ios-poc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF0A0951BCE2B9C009D70CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8B5953D41BDA8B5D007AD1BB /* services */ = {
+			isa = PBXGroup;
+			children = (
+				8B5953D51BDA8B7F007AD1BB /* ShopifyApi.swift */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
 		8BA187721BDA4B09009DAC37 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +115,6 @@
 		8BF0A0891BCE2B9C009D70CA = {
 			isa = PBXGroup;
 			children = (
-				8B5953CE1BDA53F8007AD1BB /* bridging_header.h */,
 				8BF0A0941BCE2B9C009D70CA /* shopify-ios-poc */,
 				8BF0A0A91BCE2B9C009D70CA /* shopify-ios-pocTests */,
 				8BF0A0B41BCE2B9C009D70CA /* shopify-ios-pocUITests */,
@@ -126,6 +137,9 @@
 		8BF0A0941BCE2B9C009D70CA /* shopify-ios-poc */ = {
 			isa = PBXGroup;
 			children = (
+				8B5953D21BDA8A49007AD1BB /* shopify_api.plist */,
+				8B5953D41BDA8B5D007AD1BB /* services */,
+				8B5953CE1BDA53F8007AD1BB /* bridging_header.h */,
 				8BA187721BDA4B09009DAC37 /* controllers */,
 				8BF0A0951BCE2B9C009D70CA /* AppDelegate.swift */,
 				8BF0A0991BCE2B9C009D70CA /* Main.storyboard */,
@@ -276,6 +290,7 @@
 			files = (
 				8BF0A0A01BCE2B9C009D70CA /* LaunchScreen.storyboard in Resources */,
 				8BF0A09D1BCE2B9C009D70CA /* Assets.xcassets in Resources */,
+				8B5953D31BDA8A49007AD1BB /* shopify_api.plist in Resources */,
 				8BF0A09B1BCE2B9C009D70CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +367,7 @@
 				8BF0A0961BCE2B9C009D70CA /* AppDelegate.swift in Sources */,
 				8BA187741BDA4B28009DAC37 /* RootTabController.swift in Sources */,
 				8B5953D01BDA552C007AD1BB /* HomeViewController.swift in Sources */,
+				8B5953D61BDA8B7F007AD1BB /* ShopifyApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

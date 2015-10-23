@@ -9,19 +9,20 @@
 import UIKit
 import Buy
 class HomeViewController: UIViewController {
-    let client: BUYClient
-    @IBOutlet weak var imageView: UIImageView!
-    required init(coder aDecoder: NSCoder) {
-        client = BUYClient.init(shopDomain: "vagmis-dev-store.myshopify.com",
-            apiKey: "dafd5336ed6e69b7acb0ce31b88e5aa4", channelId: "22700869")
-        super.init(coder: aDecoder)!
+  @IBOutlet weak var imageView: UIImageView!
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)!
+  }
+  
+  override func viewDidLoad() {
+    if let client = ShopifyApi.getInstance().client {
+      client.getProductsPage(1) { (products, page, reachedEnd, error) -> Void in
+        let url = NSURL.init(string: (products[0] as! BUYProduct).images[0].src)
+        self.imageView.sd_setImageWithURL(url);
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+      }
+    } else {
+      NSLog("Client was null")
     }
-    
-    override func viewDidLoad() {
-        client.getProductsPage(1) { (products, page, reachedEnd, error) -> Void in
-          let url = NSURL.init(string: (products[0] as! BUYProduct).images[0].src)
-            self.imageView.sd_setImageWithURL(url);
-            self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        }
-    }
+  }
 }
